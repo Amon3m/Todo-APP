@@ -6,7 +6,6 @@ import com.m3.todoapp.database.model.Task
 @Dao
 interface TasksDao {
 
-
     @Insert
     fun addTask( task: Task)
     @Update
@@ -19,6 +18,10 @@ interface TasksDao {
 
     @Query("SELECT * FROM Task where title like :word or description like :word")
     fun searchForTask(word:String): List<Task>
+
+    @Query("SELECT * FROM Task where title like :word")
+    fun getItemTask(word:String): Task
+
 
 
 
